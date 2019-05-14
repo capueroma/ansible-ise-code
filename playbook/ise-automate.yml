@@ -1,0 +1,9 @@
+-
+  name: Adding lines
+  hosts: UO
+  ios_config:
+    lines:
+      - authentication event server dead action reinitialize vlan 10
+    parents: "{{ item }}"
+  with_items:
+    - interface range GigabitEthernet 1/0/1-20
