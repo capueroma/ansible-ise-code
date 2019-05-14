@@ -1,7 +1,10 @@
 -
   name: Adding lines
   hosts: UO
+  become: yes
+  become_method: enable
+  
   ios_config:
     lines:
-      - authentication event server dead action reinitialize vlan 10
+      - authentication event server dead action reinitialize {{ vlan_id }}
     parents: interface range GigabitEthernet 1/0/1-20
